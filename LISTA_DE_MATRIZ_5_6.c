@@ -4,22 +4,22 @@
 #define C 3
 
 
-/*Considere uma loja que mantém em uma
-matriz o resposta vendido por cada funcionário
+/*Considere uma loja que mantÃ©m em uma
+matriz o resposta vendido por cada funcionÃ¡rio
 pelos diversos meses do ano. Ou seja, uma
-matriz de 12 linhas (uma por mês) e 10 colunas
-(10 funcionários). Pede-se o desenvolvimento
-de uma função para cada item abaixo:
+matriz de 12 linhas (uma por mÃªs) e 10 colunas
+(10 funcionÃ¡rios). Pede-se o desenvolvimento
+de uma funÃ§Ã£o para cada item abaixo:
 
 a. Calcular o total vendido durante o ano;
-b. Dado um mês fornecido pelo usuário,
-determinar o total vendido nesse mês;
-c. Dado um funcionário fornecido pelo
-usuário, determinar o total vendido por ele
+b. Dado um mÃªs fornecido pelo usuÃ¡rio,
+determinar o total vendido nesse mÃªs;
+c. Dado um funcionÃ¡rio fornecido pelo
+usuÃ¡rio, determinar o total vendido por ele
 durante o ano;
-d. Determinar o mês com maior índice de
+d. Determinar o mÃªs com maior Ã­ndice de
 vendas;
-e. Determinar o funcionário que menos
+e. Determinar o funcionÃ¡rio que menos
 vendeu durante o ano.*/
 
 
