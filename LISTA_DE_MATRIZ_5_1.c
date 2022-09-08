@@ -1,17 +1,17 @@
 #include<stdio.h>
 
 
-/*Faça uma função que, dada uma matriz M8×5 de
+/*FaÃ§a uma funÃ§Ã£o que, dada uma matriz M8Ã—5 de
 reais, gere a matriz Mt, sua transposta.
 */
 
 
-void funcao(int ma[][5]);
+void funcao(int ma[][5], int transposta[][8]);
 
 
 int main()
 {
-	int lin, col, matriz[8][5];
+	int lin, col, matriz[8][5], transposta[5][8];
 
 	for(lin=0;lin<8;lin++)
 	{
@@ -24,15 +24,14 @@ int main()
 	}
 	
 	printf("\n\n\n\n\n");
-	funcao(matriz);
+	funcao(matriz, transposta);
 	
 }
 
-void funcao(int ma[][5])
+void funcao(int ma[][5], int transposta[][8])
 {
-	int transposta[5][8], lin, col;
+	int , lin, col;
 	
-	sleep(2);
 	for(lin=0;lin<5;lin++)
 	{
 		for(col=0;col<8;col++)
