@@ -4,18 +4,19 @@
 /*Faça uma função que, dada uma matriz M8×5 de
 reais, gere a matriz Mt, sua transposta.
 */
+#define L 8
+#define C 5
 
-
-void funcao(int ma[][5], int transposta[][8]);
+void funcao(int ma[][C], int transposta[][L]);
 
 
 int main()
 {
-	int lin, col, matriz[8][5], transposta[5][8];
+	int lin, col, matriz[L][C], transposta[C][L];
 
-	for(lin=0;lin<8;lin++)
+	for(lin=0;lin<L;lin++)
 	{
-		for(col=0;col<5;col++)
+		for(col=0;col<C;col++)
 		{
 			matriz[lin][col] = lin + col;
 			printf(" |%d| ", matriz[lin][col]);
@@ -28,13 +29,13 @@ int main()
 	
 }
 
-void funcao(int ma[][5], int transposta[][8])
+void funcao(int ma[][C], int transposta[][L])
 {
 	int , lin, col;
 	
-	for(lin=0;lin<5;lin++)
+	for(lin=0;lin<C;lin++)
 	{
-		for(col=0;col<8;col++)
+		for(col=0;col<L;col++)
 		{
 			transposta[lin][col] = ma[col][lin];
 			printf(" |%d| ", transposta[lin][col]);
