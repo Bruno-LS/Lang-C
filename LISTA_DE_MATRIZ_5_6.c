@@ -4,22 +4,22 @@
 #define C 3
 
 
-/*Considere uma loja que mantém em uma
-matriz o resposta vendido por cada funcionário
+/*Considere uma loja que mantam em uma
+matriz o resposta vendido por cada funcionario
 pelos diversos meses do ano. Ou seja, uma
-matriz de 12 linhas (uma por mês) e 10 colunas
-(10 funcionários). Pede-se o desenvolvimento
-de uma função para cada item abaixo:
+matriz de 12 linhas (uma por mes) e 10 colunas
+(10 funcionarios). Pede-se o desenvolvimento
+de uma funçao para cada item abaixo:
 
 a. Calcular o total vendido durante o ano;
-b. Dado um mês fornecido pelo usuário,
-determinar o total vendido nesse mês;
-c. Dado um funcionário fornecido pelo
-usuário, determinar o total vendido por ele
+b. Dado um mes fornecido pelo usuario,
+determinar o total vendido nesse mes;
+c. Dado um funcionario fornecido pelo
+usuario, determinar o total vendido por ele
 durante o ano;
-d. Determinar o mês com maior índice de
+d. Determinar o mes com maior indice de
 vendas;
-e. Determinar o funcionário que menos
+e. Determinar o funcionario que menos
 vendeu durante o ano.*/
 
 
@@ -60,8 +60,8 @@ void main()
 		
 		case 'B':
 		printf("Diga o mes: ");
-		scanf("%d", &p);
-		p-=1;
+		scanf("%d", &p);	//PEGAR A POSIÇAO A PARTIR DO 1, JA QUE N EXISTE MES OU FUNCIONARIO "0"
+		p-=1;			//PEGAR A POSIÇAO CERTA
 		resposta = funcao(matriz, op, p);
 		printf("o total e': %d", resposta);
 		break;
@@ -81,6 +81,7 @@ void main()
 		
 		case 'E':
 		resposta = funcao(matriz, op, p);
+		printf("O funcionario com menor indice de vendas e': %d", resposta);
 		break;	
 	}
 	
@@ -90,9 +91,21 @@ void main()
 
 int funcao(int matriz[][C], char op, int p)
 {
-	int lin, col, total, maisV=-1, funcionarios[C], mes[L];
+	int lin, col, total, maisV=-1, func_com_menosV=999999, funcionarios[C], mes[L];
 
-	
+	//pegando o Total de cada mes
+		for(lin=0;lin<L;lin++)
+		{
+			for(col=0;col<C;col++)
+			{
+				//total de cada mes pegando linha por linha 
+				mes[lin] += matriz[lin][col];
+				//total de cada funcionario pegando coluna por coluna correspondente
+				funcionarios[col] += matriz[lin][col];				
+			}
+		}
+		
+	//TOTAL ANUAL	
 	if(op == 'A')
 	{
 		for(lin=0;lin<L;lin++)
@@ -105,6 +118,7 @@ int funcao(int matriz[][C], char op, int p)
 		return total;	
 	}
 	
+	//TOTAL POR MES SELECIONADO
 	else if(op == 'B')
 	{
 		for(col=0;col<C;col++)
@@ -114,6 +128,7 @@ int funcao(int matriz[][C], char op, int p)
 		return total;
 	}
 	
+	//TOTAL POR FUNCIONARIO SELECIONADO
 	else if(op == 'C')
 	{
 		for(lin=0;lin<L;lin++)
@@ -123,18 +138,9 @@ int funcao(int matriz[][C], char op, int p)
 		return total;	
 	}
 	
+	//MES COM MAIS VENDAS
 	else if(op == 'D')
-	{
-		//pegando o Total de cada mes
-		for(lin=0;lin<L;lin++)
-		{
-			for(col=0;col<C;col++)
-			{
-				mes[lin] += matriz[lin][col];				
-			}
-
-		}
-		
+	{		
 		//verificando qual mes tem mais vendas
 		for(lin=0;lin<L;lin++)
 		{
@@ -146,10 +152,18 @@ int funcao(int matriz[][C], char op, int p)
 		}
 		return total+1;
 	}
-	/*else if(op == 'E')
-	{
-		
-	}*/
 	
+	//FUNCIONARIO COM MENOS VENDAS
+	else if(op == 'E')
+	{
+		for(col=0;col<C;col++)
+		{
+			if(func_com_menosV > funcionarios[col])
+			{
+				func_com_menosV = funcionarios[col];
+				total = col;
+			}
+		}
+		return total+1;
+	}
 }
-
