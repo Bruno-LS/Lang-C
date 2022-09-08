@@ -1,8 +1,8 @@
 #include<stdio.h>
 
 
-/*Fazer uma função que, dada uma matriz M6×6,
-determine se ela é simétrica.*/
+/*Fazer uma funÃ§Ã£o que, dada uma matriz M6Ã—6,
+determine se ela Ã© simÃ©trica.*/
 
 
 int funcao(int ma[][6]);
@@ -18,17 +18,14 @@ int main()
 	{
 		for(col=0;col<6;col++)
 		{
-			//FORMA SIMÉTRICA:  matriz[lin][col] = lin + col + 1;
-			//FORMA N SIMÉTRICA: matriz[lin][col] = rand ()%10;
+			//FORMA SIMÃ‰TRICA:  matriz[lin][col] = lin + col + 1;
+			//FORMA N SIMÃ‰TRICA: matriz[lin][col] = rand ()%10;
 			printf(" |%d| ", matriz[lin][col]);
 		}
 		printf("\n");		
 	}
 	
 	printf("\n\n\n");
-	transposta(matriz);
-	printf("\n\n\n");
-	
 	sim = funcao(matriz);
 	
 	if(sim==1)
@@ -58,21 +55,4 @@ int funcao(int ma[][6])
 		}		
 	}
 	return 1;
-}
-
-void transposta(int ma[][6])
-{
-	int transposta[6][6], lin, col;
-	
-	
-	for(lin=0;lin<6;lin++)
-	{
-		for(col=0;col<6;col++)
-		{
-			transposta[lin][col] = ma[col][lin];
-			printf(" |%d| ", transposta[lin][col]);
-		}
-		printf("\n");		
-	}
-	
 }
