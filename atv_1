@@ -4,42 +4,50 @@
 #define ROW 5
 #define COL 5
 
-int aparecem(int matriz[COL], int vet[], int lin);
+int aparecem(int matriz[ROW][COL], int vet[], int lin);
 
 void main()
 {
-	int vet[COL], lin=3;
+	int vet[COL]={0,0,0,0,0}, lin=1;
 
-	int matriz[ROW][COL] ={	{1, 5, 7, 1, 6},
+	int matriz[ROW][COL] ={	
+	{1, 5, 7, 1, 6},
 	{6, 2, 1, 4, 7,},
 	{3, 6, 9, 7, 1},
 	{2, 4, 5, 7, 4},
 	{2, 4, 8, 9, 2} };
 	
-	aparecem(matriz[COL], vet, lin);
+	aparecem(matriz, vet, lin);
 	
 }
 
-int aparecem(int matriz[COL], int vet[], int lin)
+int aparecem(int matriz[ROW][COL], int vet[], int lin)
 {
-	int i, j, k, aux[ROW];
+	int i, j, o, aux[ROW];
+		
 	
-	
-	for(k=0;k<=COL;k++)
+	for(o=0;o<COL;o++)
 	{
-		aux[k] = matriz[lin][k];
-	}
-	
-	for(i=0;i<=ROW;i++)
-	{
-		if(i!=lin)
-		for(j=0;j<=COL;j++)
+		for(i=0;i<ROW;i++)
 		{
-			if(aux[j]==matriz[i][j])
+			if(i!=lin)
 			{
-				vet[j]++;
+				for(j=0;j<COL;j++)
+				{
+					if(matriz[lin][o]==matriz[i][j])
+					{
+						vet[o]++;
+					}
+				}
 			}
 		}
 	}
+	
+//	crie o P para EXIBIR
+/*	for(p=0;p<COL;p++)
+	{
+		printf("%d vezes %d\n", vet[p], aux[p]);
+		
+	}*/
 	
 }
