@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define ROW 5
+#define COL 5
+
+int aparecem(int matriz[COL], int vet[], int lin);
+
+void main()
+{
+	int vet[COL], lin=3;
+
+	int matriz[ROW][COL] ={	{1, 5, 7, 1, 6},
+	{6, 2, 1, 4, 7,},
+	{3, 6, 9, 7, 1},
+	{2, 4, 5, 7, 4},
+	{2, 4, 8, 9, 2} };
+	
+	aparecem(matriz[COL], vet, lin);
+	
+}
+
+int aparecem(int matriz[COL], int vet[], int lin)
+{
+	int i, j, k, aux[ROW];
+	
+	
+	for(k=0;k<=COL;k++)
+	{
+		aux[k] = matriz[lin][k];
+	}
+	
+	for(i=0;i<=ROW;i++)
+	{
+		if(i!=lin)
+		for(j=0;j<=COL;j++)
+		{
+			if(aux[j]==matriz[i][j])
+			{
+				vet[j]++;
+			}
+		}
+	}
+	
+}
